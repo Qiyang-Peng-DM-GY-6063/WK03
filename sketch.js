@@ -1,27 +1,31 @@
-let angle = -1;
-let a = 1; // Define w
-let aSwitch = 1; // Define wSwitch
+let angle = 0;
+let lastMouseX = 0;
+let lastMouseY = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(5);
+
+  lastMouseX = mouseX;
+  lastMouseY = mouseY;
+
 }
 
 function draw() {
-  // Ensure w and wSwitch work as intended
-  if (a >= 2 || a <= 0) {
-    aSwitch *= -1;
-  }
-  a += aSwitch * 0.01;
+  background(255,255,255,25);
 
-  // Adjust angle for rotation
-  a += 0.01;
-  
-  // Reset the matrix and rotate from the center of the canvas
+  // angle update
+  if (mouseIsPressed) {
+    let deltaX = mouseX - lastMouseX;
+    let deltaY = mouseY - lastMouseY;
+    angle += deltaX * 0.01;
+  }
+
+  lastMouseX = mouseX;
+  lastMouseY = mouseY;
+
   translate(windowWidth / 2, windowHeight / 2);
-  rotate(a);
-  
-  // Call the star function with adjusted coordinates
+  rotate(angle);
+
   star(0, 0, 300, 30);
   star(0, 0, 20, 70);
   star(0, 0, 700, 10);
