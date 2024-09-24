@@ -8,17 +8,18 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   noFill();
-  for (let d = 0; d < windowWidth; d += 15) {
+  stroke(127,127,127,100);
+
+  for (let d = 0; d < windowWidth+600; d += 15) {
     ellipse(windowWidth / 2, windowHeight / 2, d);
   }
 
-  frameRate(25);
 }
 
 function draw() {
-  background(230, 208, 255, 5);
+  background(185, 185, 255, 10);
 
-  if (d >= windowWidth || d <= 0) {
+  if (d >= windowWidth+600 || d <= 0) {
     dSwitch *= -1;
   }
 
