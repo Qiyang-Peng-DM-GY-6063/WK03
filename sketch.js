@@ -1,38 +1,38 @@
-let angle = 0;
-let lastMouseX = 0;
-let lastMouseY = 0;
+let angle = -1;
+let a = 0.5; 
+let aSwitch = -1; 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
-  lastMouseX = mouseX;
-  lastMouseY = mouseY;
-
 }
 
 function draw() {
-  background(255,255,255,25);
 
-  // angle update
-  if (mouseIsPressed) {
-    let deltaX = mouseX - lastMouseX;
-    let deltaY = mouseY - lastMouseY;
-    angle += deltaX * 0.01;
+  background(255,255,255,5);
+
+  if (a >= 1 || a <= 0) {
+    aSwitch *= -1;
   }
 
-  lastMouseX = mouseX;
-  lastMouseY = mouseY;
-
+  a += 0.01*aSwitch;
+  
   translate(windowWidth / 2, windowHeight / 2);
-  rotate(angle);
+  rotate(a);
 
-  star(0, 0, 300, 30);
-  star(0, 0, 20, 70);
-  star(0, 0, 700, 10);
-  star(0, 0, 250, 50);
+
+  stroke(255, 204, 0);
+  star(0, 0, 350, 10,2);
+
+  stroke(0);
+  star(0, 0, 300, 30,2);
+  star(0, 0, 20, 70,2);
+  star(0, 0, 250, 50,2);
+
+
 }
 
-function star(x, y, s, c) {
+function star(x, y, s, c,sw) {
+  strokeWeight(sw);
   line(x - s / 2, y, x - c / 2, y + c / 2);
   line(x - c / 2, y + c / 2, x, y + s / 2);
   line(x, y + s / 2, x + c / 2, y + c / 2);
