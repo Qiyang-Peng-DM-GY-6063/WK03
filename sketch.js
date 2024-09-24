@@ -3,6 +3,7 @@ let a = 0.5;
 let aSwitch = -1;
 let d = 0;
 let dSwitch = -1;
+let circleStroke = 1;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -24,9 +25,10 @@ function draw() {
   }
 
   d += 15 * dSwitch;
+  circleStroke += 2*dSwitch;
 
-  strokeWeight(1);
-  stroke(255,255,255,100);
+  strokeWeight(circleStroke);
+  stroke(255,255,255,50);
   ellipse(windowWidth / 2, windowHeight / 2, d);
 
   if (a >= 1 || a <= 0) {
