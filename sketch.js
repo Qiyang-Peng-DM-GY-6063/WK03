@@ -5,6 +5,9 @@ let d = 0;
 let dSwitch = -1;
 let circleStroke = 1;
 
+// let clickedX = 0;
+// let clickedY = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -18,6 +21,9 @@ function setup() {
 }
 
 function draw() {
+
+  // translate(0-clickedX,0-clickedY);
+  
   background(185, 185, 255, 10);
 
   if (d >= windowWidth+600 || d <= 0) {
@@ -61,6 +67,11 @@ function star(x, y, s, c, sw) {
   line(x, y - s / 2, x - c / 2, y - c / 2);
   line(x - c / 2, y - c / 2, x - s / 2, y);
 }
+
+// function mousePressed(){
+//   clickedX = mouseX;
+//   clickedY = mouseY;
+// }
 
 //make use of translate to set the (0,0)
 // function star(x,y,w){
